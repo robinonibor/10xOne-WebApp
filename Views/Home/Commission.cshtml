@@ -1,0 +1,11 @@
+﻿<ejs-grid id="Grid" allowPaging="true">
+    <e-data-manager url="/Home/GetCommissions" adaptor="UrlAdaptor"></e-data-manager>
+    <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Normal"></e-grid-editSettings>
+    <e-grid-columns>
+        <e-grid-column field="partner_id" visible="false" isPrimaryKey="true" textAlign="Right" width="100"></e-grid-column>
+        <e-grid-column field="partner_name" headerText="Partner" textAlign="Left" width="100"></e-grid-column>
+        <e-grid-column field="totalTeamPO" headerText="Team Purchase" width="150" editType="numericedit"></e-grid-column>
+        <e-grid-column field="totalPO" headerText="Total Purchase" width="150" editType="numericedit"></e-grid-column>
+        <e-grid-column field="totalCommission" headerText="Total Commission" width="150" editType="numericedit"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>

@@ -1,0 +1,10 @@
+﻿<ejs-grid id="Grid" allowPaging="true">
+    <e-data-manager url="/Home/GetPartnerData" ></e-data-manager>
+    <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true"></e-grid-editSettings>
+    <e-grid-columns>
+        <e-grid-column field="partnerid" headerText="Id" isPrimaryKey="true" textAlign="Right" width="100"></e-grid-column>
+        <e-grid-column field="partnername" headerText="NAME" type="string" width="120"></e-grid-column>
+        <e-grid-column field="fee" headerText="FEE" width="150"></e-grid-column>
+        <e-grid-column field="parentpartnername" headerText="PARENT" width="150"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>

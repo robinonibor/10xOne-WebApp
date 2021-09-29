@@ -1,0 +1,36 @@
+﻿<ejs-grid id="Grid" toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })" allowPaging="true">
+    <e-data-manager url="/Home/GetFinancialItems" adaptor="UrlAdaptor" insertUrl="/Home/CreateFinancialItem" updateUrl="/Home/UpdateFinancialItem" removeUrl="/Home/RemoveFinancialItem" ></e-data-manager>
+    <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Normal"></e-grid-editSettings>
+    <e-grid-columns>
+        <e-grid-column field="financialitem_id" visible="false" isPrimaryKey="true" textAlign="Right" width="100"></e-grid-column>
+        <e-grid-column field="partner_id" headerText="Partner Id" editType="numericedit" textAlign="Left" width="100"></e-grid-column>
+        <e-grid-column field="date" headerText="Date" width="150" format="yMd" edit="@(new {create = "create", read = "read", destroy = "destroy", write = "write"})"></e-grid-column>
+        <e-grid-column field="amount" headerText="Amount" width="150" editType="numericedit"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
+
+<script>
+    var elem;
+    var dObj;
+
+    function create(args) {
+        elem = document.createElement('input');
+        return elem;
+    }
+
+    function write(args) {
+        dObj = new ej.calendars.DatePicker({
+            value: new Date(args.rowData[args.column.field]),
+            placeholder: 'Select DateTime'
+        });
+        dObj.appendTo(elem);
+    }
+
+    function destroy() {
+        dObj.destroy();
+    }
+
+    function read(args) {
+        return dObj.value;
+    }
+</script>
